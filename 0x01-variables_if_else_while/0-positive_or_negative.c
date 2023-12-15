@@ -16,15 +16,15 @@ int main(void)
 	n = rand() - RAND_MAX / 2;
 	if (n > 0)
 	{
-		pintf("The number is positive: %d\n, n");
+		printf("The number is positive:%i\n, n");
 	}
 	else if (n < 0)
 	{
-		printf("The number is negative: %d\n, n");
+		printf("The number is negative:%i\n, n");
 	}
 	else
 	{
-		printf("The number is zero: %d\n, n");
+		printf("The number is zero:%i\n, n");
 	}
 	return (0);
 }
