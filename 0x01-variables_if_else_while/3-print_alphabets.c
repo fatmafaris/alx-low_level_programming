@@ -8,20 +8,20 @@
  */
 int main(void)
 {
-	char lower_case, upper_case;
+	char lowercase, uppercase;
 
-	lower_case = 'a';
-	upper_case = 'A';
+	lowercase = 'a';
+	uppercase = 'A';
 
-	while (lower_case <= 'z')
+	while (lowercase <= 'z')
 	{
-		putchar(lower_case);
-		lower_case++;
+		putchar(lowercase);
+		lowercase++;
 	}
-	while (upper_case <= 'Z')
+	while (uppercase <= 'Z')
 	{
-		putchar(upper_case);
-		upper_case++;
+		putchar(uppercase);
+		uppercase++;
 	}
 	putchar("\n");
 	return (0);
