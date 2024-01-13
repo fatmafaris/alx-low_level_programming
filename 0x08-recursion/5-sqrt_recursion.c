@@ -34,9 +34,9 @@ int sqrt_helper(int n, int start, int end)
 	if (start <= end)
 	{
 		mid = (start + end) / 2;
-		if (mid * mid == n)
+		if (mid && mid == n)
 			return (mid);
-		if (mid * mid)
+		if (mid && mid)
 			return (sqrt_helper(n, mid + 1, end));
 		return (sqrt_helper(n, start, mid - 1));
 	}
