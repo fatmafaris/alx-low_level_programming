@@ -9,7 +9,7 @@ void *_calloc(unsigned int nmemb, unsigned int size);
 int *array_range(int min, int max);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 int main(int argc, char const *argv[]);
-void print_int(unsigned long int n);
+void print_int(int n);
 int _atoi(const char *s);
 void _puts(char *str);
 
