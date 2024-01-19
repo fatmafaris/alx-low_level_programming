@@ -1,86 +1,61 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
- * _puts - prints a string, followed by a new line
+ * is_positive_number - checks if a string represents a positive number
+ * @str: string to check
  *
- * @str: pointer to string
+ * Return: 1 if str is a positive number, 0 otherwise
  */
-void _puts(char *str)
+int is_positive_number(char *str)
 {
-	int i = 0;
+	if (*str == '\0')
+		return (0);
 
-	while (str[i])
+	while (*str != '\0')
 	{
-		_putchar(str[i]);
-		i++;
+		if (*str < '0' || *str > '9')
+			return (0);
+		str++;
 	}
+
+	return (1);
 }
+
 /**
- * _atoi - convert string to integer
+ * multiply - multiplies two positive numbers
+ * @num1: first number
+ * @num2: second number
  *
- * @s: char type string
- *
- * Return: integer converted
+ * Return: the multiplication result
  */
-int _atoi(const char *s)
+int multiply(int num1, int num2)
 {
-	int sign = 1;
-	unsigned long int response = 0, firstnum, i;
-
-	for (firstnum = 0; !(s[firstnum] >= '0' && s[firstnum] <= '9'); firstnum++)
-	{
-		if (s[firstnum] == '-')
-		{
-			sign *= -1;
-		}
-	}
-
-	for (i = firstnum; s[i] >= '0' && s[i] <= '9'; i++)
-	{
-		response *= 10;
-		response += (s[i] - '0');
-	}
-	return (sign * response);
+	return (num1 * num2);
 }
+
 /**
- * print_int - prints integer
+ * main - entry point of the program
+ * @argc: argument count
+ * @argv: argument vector
  *
- * @n: int
- *
- * Return: 0
+ * Return: 0 on success, 98 on error
  */
-void print_int(int n)
+int main(int argc, char *argv[])
 {
-	int divisor = 1, i, response;
+	int num1, num2, result;
 
-	for (i = 0; n / divisor > 9; i++, divisor *= 10)
-	;
-
-	for (; divisor >= 1; n %= divisor, divisor /= 10)
+	if (argc != 3 || !is_positive_number(argv[1]) || !is_positive_number(argv[2]))
 	{
-		response = n / divisor;
-		_putchar('0' + response);
+		printf("Error\n");
+		return (98);
 	}
-}
-/**
- * main - print the result of multiplication
- *
- * @argc: integer
- * @argv: list
- *
- * Return: 0
- */
-int main(int argc, char const *argv[])
-{
-	(void)argc;
+	num1 = atoi(argv[1]);
+	num2 = atoi(argv[2]);
 
-	if (argc != 3)
-	{
-		_puts("Error ");
-		exit(98);
-	}
-	print_int(_atoi(argv[1]) * _atoi(argv[2]));
-	_putchar('\n');
+	result = multiply(num1, num2);
+
+	printf("%d\n", result);
 
 	return (0);
 }
