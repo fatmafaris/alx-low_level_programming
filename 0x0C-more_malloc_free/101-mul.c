@@ -54,7 +54,7 @@ void print_int(int n)
 	int divisor = 1, i, response;
 
 	for (i = 0; n / divisor > 9; i++, divisor *= 10)
-		;
+	;
 
 	for (; divisor >= 1; n %= divisor, divisor /= 10)
 	{
