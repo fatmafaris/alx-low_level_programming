@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * _puts - prints a string
+ * _puts - prints a string, followed by a new line
  *
- * @str: string
+ * @str: pointer to string
  */
 void _puts(char *str)
 {
@@ -27,7 +27,7 @@ int _atoi(const char *s)
 	int sign = 1;
 	unsigned long int response = 0, firstnum, i;
 
-	for (firstnum = 0; !(s[firstnum] >= 48 && s[firstnum] <= 57); firstnum++)
+	for (firstnum = 0; !(s[firstnum] >= '0' && s[firstnum] <= '9'); firstnum++)
 	{
 		if (s[firstnum] == '-')
 		{
@@ -35,10 +35,10 @@ int _atoi(const char *s)
 		}
 	}
 
-	for (i = firstnum; s[i] >= 48 && s[i] <= 57; i++)
+	for (i = firstnum; s[i] >= '0' && s[i] <= '9'; i++)
 	{
 		response *= 10;
-		response += (s[i] - 48);
+		response += (s[i] - '0');
 	}
 	return (sign * response);
 }
